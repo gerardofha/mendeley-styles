@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0">
+  <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
+  <info>
+    <title>Chicago-Deusto</title>
+    <id>http://www.zotero.org/styles/chicago-deusto</id>
+    <link rel="self" href="http://www.zotero.org/styles/chicago-deusto"/>
+    <author>
+      <name>Deusto</name>
+      <email>deusto@deusto.es</email>
+    </author>
+    <category citation-format="bibliography"/>
+    <category citation-format="citation"/>
+    <summary>Chicago style used at Deusto University.</summary>
+    <updated>2025-04-26T14:18:51+00:00</updated>
+  </info>
+  <macro name="contributors">
+    <choose>
+      <if variable="author">
+        <text variable="author"/>
+      </if>
+      <else-if variable="editor">
+        <text variable="editor"/>
+      </else-if>
+      <else>
+        <text term="no author"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if variable="title">
+        <text variable="title"/>
+      </if>
+      <else>
+        <text term="no title"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="issued">
+    <choose>
+      <if variable="issued">
+        <text variable="issued" form="text"/>
+      </if>
+      <else>
+        <text term="no date"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="publisher">
+    <choose>
+      <if variable="publisher">
+        <text variable="publisher"/>
+      </if>
+      <else>
+        <text term="no publisher"/>
+      </else>
+    </choose>
+  </macro>
+  <macro name="access">
+    <group delimiter=". ">
+      <choose>
+        <if type="graphic report" match="any">
+          <text macro="archive"/>
+        </if>
+        <else-if type="article-journal bill book chapter legal_case legislation motion_picture paper-conference" match="none">
+          <text macro="archive"/>
+        </else-if>
+      </choose>
+      <choose>
+        <if variable="issued" match="none">
+          <group delimiter=" ">
+            <text term="accessed" text-case="capitalize-first"/>
+            <date variable="accessed" form="text"/>
+          </group>
+        </if>
+      </choose>
+      <choose>
+        <if type="legal_case" match="none">
+          <choose>
+            <if variable="DOI">
+              <text variable="DOI" prefix="https://doi.org/"/>
+            </if>
+            <else>
+              <text variable="URL"/>
+            </else>
+          </choose>
+        </if>
+      </choose>
+    </group>
+  </macro>
+  <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true">
+    <layout suffix="." delimiter="; ">
+      <choose>
+        <if position="ibid ibid-with-locator" match="any">
+          <group delimiter=", ">
+            <text macro="contributors"/>
+            <group delimiter=" ">
+              <group delimiter=", ">
+                <choose>
+                  <if variable="author editor translator" match="none">
+                    <text macro="title"/>
+                  </if>
+                </choose>
+                <text macro="case-locator-subsequent"/>
+              </group>
+              <text macro="case-pinpoint-subsequent"/>
+            </group>
+            <choose>
+              <if match="none" type="legal_case">
+                <text macro="point-locators-subsequent"/>
+              </if>
+            </choose>
+          </group>
+        </if>
+        <else-if position="subsequent">
+          <group delimiter=", ">
+            <text macro="contributors"/>
+            <group delimiter=" ">
+              <group delimiter=", ">
+                <text macro="title"/>
+                <text macro="date-disambiguate"/>
+                <text macro="case-locator-subsequent"/>
+              </group>
+              <text macro="case-pinpoint-subsequent"/>
+            </group>
+            <choose>
+              <if match="none" type="legal_case">
+                <text macro="point-locators-subsequent"/>
+              </if>
+            </choose>
+          </group>
+        </else-if>
+        <else>
+          <group delimiter=", ">
+            <group delimiter=": ">
+              <group delimiter=", ">
+                <group delimiter=" ">
+                  <group delimiter=", ">
+                    <group delimiter=" ">
+                      <group delimiter=", ">
+                        <group delimiter=", ">
+                          <text macro="contributors"/>
+                          <text macro="title"/>
+                          <text macro="issue-map-graphic"/>
+                        </group>
+                        <text macro="description"/>
+                        <text macro="secondary-contributors"/>
+                        <group delimiter=", ">
+                          <text macro="container-title"/>
+                          <text macro="container-contributors"/>
+                        </group>
+                        <text macro="locators-join-with-period"/>
+                      </group>
+                      <text macro="locators-join-with-comma"/>
+                      <text macro="locators-chapter"/>
+                    </group>
+                    <text macro="locators-join-with-space"/>
+                  </group>
+                  <text macro="collection-title"/>
+                  <text macro="issue-join-with-period"/>
+                </group>
+                <text macro="issue-join-with-space"/>
+              </group>
+              <text macro="issue-join-with-comma"/>
+              <text macro="locators-journal-join-with-comma"/>
+              <text macro="locators-newspaper"/>
+            </group>
+            <text macro="locators-journal-join-with-colon"/>
+          </group>
+          <text macro="access"/>
+        </else>
+      </choose>
+    </layout>
+  </citation>
+  <bibliography hanging-indent="true" et-al-min="11" et-al-use-first="7" subsequent-author-substitute="———" entry-spacing="0">
+    <sort>
+      <key macro="contributors"/>
+      <key variable="title"/>
+      <key variable="genre"/>
+      <key variable="issued"/>
+    </sort>
+    <layout suffix=".">
+      <group delimiter=". ">
+        <group delimiter=": ">
+          <group delimiter=", ">
+            <group delimiter=" ">
+              <group delimiter=". ">
+                <group delimiter=" ">
+                  <group delimiter=", ">
+                    <group delimiter=". ">
+                      <group delimiter=". ">
+                        <text macro="contributors"/>
+                        <text macro="title"/>
+                        <text macro="issue-map-graphic"/>
+                      </group>
+                      <text macro="description"/>
+                      <text macro="secondary-contributors"/>
+                      <group delimiter=", ">
+                        <text macro="container-title"/>
+                        <text macro="container-contributors"/>
+                      </group>
+                      <text macro="locators-join-with-period"/>
+                    </group>
+                    <text macro="locators-join-with-comma"/>
+                    <text macro="locators-chapter"/>
+                  </group>
+                  <text macro="locators-join-with-space"/>
+                </group>
+                <text macro="collection-title"/>
+                <text macro="issue-join-with-period"/>
+              </group>
+              <text macro="issue-join-with-space"/>
+            </group>
+            <text macro="issue-join-with-comma"/>
+            <text macro="locators-journal-join-with-comma"/>
+            <text macro="locators-newspaper"/>
+          </group>
+          <text macro="locators-journal-join-with-colon"/>
+        </group>
+        <text macro="access"/>
+      </group>
+    </layout>
+  </bibliography>
+</style>
